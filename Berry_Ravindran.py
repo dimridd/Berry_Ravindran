@@ -7,6 +7,9 @@ Created on Tue Apr 17 11:32:12 2018
 """
 
 #%%
+
+import time
+
 table = [[0 for i in range(256)] for j in range(256)]
 
 def bc1(pat, m, table):
@@ -63,12 +66,20 @@ def BR(pat, m, text, n):
 
 
 def main():
-	text = "GCATCGCAGAGAGTATACAGTACG"
-	pat = "GCAGAGAG"
+	with open('hi', 'r') as myfile:
+		   data=myfile.read().replace('\n', '')
 	
 	
+	text = data
+	pat = "MAIKIGINGFGRIGRIVFRA"
+	
+	t1 = time.time()
+	print ('start')
 	print(BR(pat, len(pat), text, len(text)))
-
+	t2 = time.time()
+	print ( (t2 - t1) * 1000)
+	
 if __name__ == '__main__':
 	main()
+		
 		
